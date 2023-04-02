@@ -389,6 +389,7 @@ namespace WindowsFormsApp1
             this.PorcMoraComboBox.Size = new System.Drawing.Size(63, 24);
             this.PorcMoraComboBox.TabIndex = 13;
             this.PorcMoraComboBox.Text = "43,27";
+            this.PorcMoraComboBox.TextChanged += new System.EventHandler(this.PorcMoraComboBox_TextChanged);
             // 
             // dataGridView1
             // 

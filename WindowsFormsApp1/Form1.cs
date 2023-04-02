@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Liquidador_Inducom2023.Properties;
 
 // Cristian Andres Beltran Garzon
 // Marzo de 2023
@@ -34,7 +35,7 @@ namespace WindowsFormsApp1
     {
         private string plantillaExcel = (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+ @"\Inducom 2023\Plantilla Industria y Comercio.xlsx"); //@"C:\Users\User\source\repos\WindowsFormsApp1\WindowsFormsApp1\PlantillasExcel\Plantilla Industria y Comercio.xlsx";
         private double totalInteresMora = 0;
-        private double totalInteresExtemporaneidad = 0+1-1;
+        private double totalInteresExtemporaneidad = 0;
 
 
         public Form1()
@@ -49,6 +50,10 @@ namespace WindowsFormsApp1
             dataGridView1.Visible = false;
             claseTb.Visible = false;
             claseBt.Visible = false;
+
+            PorcMoraComboBox.Text = (string)Settings.Default["PorcMoraSet"];
+            dosUvtLb.Text = "Mayor a " + (string)Settings.Default["DosUVTSet"];
+
         }
         
         private void textBox6_TextChanged(object sender, EventArgs e)              // Indica el total parcial en base a los ingresos, para que el usuario pueda comprobar que supera los 2 UVT
@@ -157,6 +162,12 @@ namespace WindowsFormsApp1
             claseTb.Text = primerDato.ToString();
             claseTb.Text = Environment.CurrentDirectory;
 //          Environment.GetEnvironmentVariable()
+        }
+
+        private void PorcMoraComboBox_TextChanged(object sender, EventArgs e)
+        {
+            Settings.Default["PorcMoraSet"] = PorcMoraComboBox.Text;
+            Settings.Default.Save();
         }
     }
     // RRG!! ÒʌÓ
