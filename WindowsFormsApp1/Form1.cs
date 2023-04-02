@@ -34,11 +34,11 @@ namespace WindowsFormsApp1
     {
         private string plantillaExcel = (Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+ @"\Inducom 2023\Plantilla Industria y Comercio.xlsx"); //@"C:\Users\User\source\repos\WindowsFormsApp1\WindowsFormsApp1\PlantillasExcel\Plantilla Industria y Comercio.xlsx";
         private double totalInteresMora = 0;
-        private double totalInteresExtemporaneidad = 0;
+        private double totalInteresExtemporaneidad = 0+1-1;
 
 
         public Form1()
-        {
+        {//a
             InitializeComponent();            
         }
 
