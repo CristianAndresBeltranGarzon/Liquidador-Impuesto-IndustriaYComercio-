@@ -14,21 +14,6 @@ using Liquidador_Inducom2023.Properties;
 // Cristian Andres Beltran Garzon
 // Marzo de 2023
 
-// vale, pues aparentemente los calculos ya funcionan (talvez con un margen de error de $ 3.000 en los intereses por mora)
-// creo que ya se puede implementar la creacion del excel
-// crear una tabla para mostrar los valores individuales
-// indicar la fecha en que se actualizó el UVT y el % interes mora
-/* a) Crear clase datos (los que quiero almacenar en DB)
- * exportar datos a XML
- * 
- * b) exportar datos y valores a la plantilla excel (necesito una clase?) 
- *      al excel solo hay que exportar 3 datos de calculos (ingresos, int ext e int mora), mas los
- *      datos personales
- * abrir la plantilla excel
- * probablemente se guarde automaticamente, en ese caso el nombre podría ser tal que Nombre_Apellido_01-01-2077_INDUCOM
- * 
- * hay que guardar el % mora cuando se modifique
- */
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
@@ -37,9 +22,8 @@ namespace WindowsFormsApp1
         private double totalInteresMora = 0;
         private double totalInteresExtemporaneidad = 0;
 
-
         public Form1()
-        {//a
+        {
             InitializeComponent();            
         }
 
@@ -47,7 +31,6 @@ namespace WindowsFormsApp1
         {
             fechaLabel.Text = Program.fechaPagarGlobal.ToString("d");
             añoComboBox.Text = (Program.fechaPagarGlobal.Year - 1).ToString();
-            dataGridView1.Visible = false;
             claseTb.Visible = false;
             claseBt.Visible = false;
 
@@ -62,33 +45,26 @@ namespace WindowsFormsApp1
             controlTb.Text = (Math.Round(d / 1000) * 1000).ToString();          
         }
 
-        private void button1_Click(object sender, EventArgs e)                     
+        private void button1_Click(object sender, EventArgs e)         // Boton Calcular             
         {
-            double totalParcial = Math.Round(double.Parse((totalIngresosTb.Text != "") ? totalIngresosTb.Text : "0") * 0.006 / 1000) * 1000;  // Total parcial impuesto
-          //  double totalParcial = Math.Round(double.Parse(totalIngresosTb.Text ?? "5"));
+            double totalParcial = Math.Round(double.Parse((totalIngresosTb.Text != "") ? totalIngresosTb.Text : "0") * 0.006 / 1000) * 1000;  // Total parcial impuesto          
             double otrosCobros = Math.Round((totalParcial * 0.15) / 1000) * 1000;               // Cobros avisos y tablero
             otrosCobros += Math.Round((totalParcial * 0.05) / 1000) * 1000;                     // Cobro bomberil
                                                                                                                              
             double interesExtemporaneidad = 0, interesMora = 0;
-           
             if (MesesTrasncurridos() >= 15){        // Verifica si el mes actual es abril o mayor, tomando como referencia los meses transcurridos desde enero del año Gravable
                 interesExtemporaneidad = Math.Round((totalParcial * CalcularPorcExtemporaneidad() / 100) / 1000) * 1000;  //  Sancion de Extemporaneidad
+                totalInteresExtemporaneidad = interesExtemporaneidad;
 
                 interesMora = (Math.Round((totalParcial * CalcularPorcMora() / 100) / 1000) * 1000);//  Intereses por mora
                 interesMora = (interesMora != 0) ? interesMora : 1000;                              //  Si el valor fue redondeado a 0 por el calculo anterior, se redondeará automaticamente a 1000
-            }
-            //textBox1.Text = totalParcial.ToString();
-            //textBox2.Text = interesExtemporaneidad.ToString();
-            //textBox3.Text = interesMora.ToString();
-            //textBox4.Text = otrosCobros.ToString();
-            //textBox8.Text = CalcularPorcMora().ToString();
-            totalInteresExtemporaneidad = interesExtemporaneidad;
-            totalInteresMora = interesMora;
+                totalInteresMora = interesMora;
+            }                     
+            
             extemTb.Text = interesExtemporaneidad.ToString();
             moraTb.Text = interesMora.ToString();
 
             totalPagarTb.Text = (totalParcial + otrosCobros + interesExtemporaneidad + interesMora).ToString();         //  Total a pagar
-        
         }
 
         public double CalcularPorcExtemporaneidad()
@@ -99,18 +75,15 @@ namespace WindowsFormsApp1
 
         public double CalcularPorcMora() {
             double porcentajeDiario = (double.Parse(PorcMoraComboBox.Text)/12/30);  // Se calcula el porcentaje a pagar diario en base al porcentaje anual ingresado         
-            double porcentajeMora;
-            nombreTb.Text = porcentajeDiario.ToString();
+            double porcentajeMora;            
             if (Program.fechaPagarGlobal.Year - int.Parse(añoComboBox.Text)<=1)     // Si el año a pagar es el inmediatamente anterior
             {
                 porcentajeMora = (Program.fechaPagarGlobal.Day + ((MesesTrasncurridos() - 15) * 30)) * porcentajeDiario;   // Dias totales de mora multiplicados por el porcentaje diario                               
             }
             else                                                                    // Si hay mas de un año de mora
             {
-                
                 porcentajeMora = (Program.fechaPagarGlobal.Day + ((MesesTrasncurridos() - 16) * 30)) * porcentajeDiario;   //??// Dias totales de mora multiplicados por el porcentaje diario                               
-            }
-            cedulaTb.Text = porcentajeMora.ToString();
+            }            
             return porcentajeMora; }
   
         private void button2_Click(object sender, EventArgs e)   // Seleccionar otra fecha
@@ -161,7 +134,6 @@ namespace WindowsFormsApp1
 
             claseTb.Text = primerDato.ToString();
             claseTb.Text = Environment.CurrentDirectory;
-//          Environment.GetEnvironmentVariable()
         }
 
         private void PorcMoraComboBox_TextChanged(object sender, EventArgs e)
@@ -169,6 +141,28 @@ namespace WindowsFormsApp1
             Settings.Default["PorcMoraSet"] = PorcMoraComboBox.Text;
             Settings.Default.Save();
         }
+
+        private void extemLb_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     // RRG!! ÒʌÓ
+
+
+    // vale, pues aparentemente los calculos ya funcionan (talvez con un margen de error de $ 3.000 en los intereses por mora)
+    // x creo que ya se puede implementar la creacion del excel
+    // crear una tabla para mostrar los valores individuales
+    // indicar la fecha en que se actualizó el UVT y el % interes mora
+    /* a) Crear clase datos (los que quiero almacenar en DB)
+     * exportar datos a XML (siguiente version)
+     * 
+     * x b) exportar datos y valores a la plantilla excel
+     *      al excel solo hay que exportar 3 datos de calculos (ingresos, int ext e int mora), mas los
+     *      datos personales
+     * abrir la plantilla excel
+     * probablemente se guarde automaticamente, en ese caso el nombre podría ser tal que Nombre_Apellido_01-01-2077_INDUCOM
+     * 
+     * x hay que guardar el % mora cuando se modifique
+     */
 }

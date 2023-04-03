@@ -59,15 +59,15 @@ namespace WindowsFormsApp1
             this.totalPagarTb = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.PorcMoraComboBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.claseBt = new System.Windows.Forms.Button();
             this.claseTb = new System.Windows.Forms.TextBox();
             this.extemTb = new System.Windows.Forms.TextBox();
             this.moraTb = new System.Windows.Forms.TextBox();
             this.extemLb = new System.Windows.Forms.Label();
             this.moraLb = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -323,7 +323,7 @@ namespace WindowsFormsApp1
             // controlTb
             // 
             this.controlTb.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.controlTb.Location = new System.Drawing.Point(758, 337);
+            this.controlTb.Location = new System.Drawing.Point(758, 392);
             this.controlTb.Name = "controlTb";
             this.controlTb.ReadOnly = true;
             this.controlTb.Size = new System.Drawing.Size(63, 24);
@@ -333,7 +333,7 @@ namespace WindowsFormsApp1
             // 
             this.dosUvtLb.AutoSize = true;
             this.dosUvtLb.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dosUvtLb.Location = new System.Drawing.Point(655, 342);
+            this.dosUvtLb.Location = new System.Drawing.Point(655, 397);
             this.dosUvtLb.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.dosUvtLb.Name = "dosUvtLb";
             this.dosUvtLb.Size = new System.Drawing.Size(99, 16);
@@ -355,7 +355,7 @@ namespace WindowsFormsApp1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(564, 397);
+            this.label11.Location = new System.Drawing.Point(525, 458);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(134, 26);
@@ -364,7 +364,7 @@ namespace WindowsFormsApp1
             // 
             // totalPagarTb
             // 
-            this.totalPagarTb.Location = new System.Drawing.Point(721, 389);
+            this.totalPagarTb.Location = new System.Drawing.Point(682, 450);
             this.totalPagarTb.Name = "totalPagarTb";
             this.totalPagarTb.ReadOnly = true;
             this.totalPagarTb.Size = new System.Drawing.Size(100, 34);
@@ -374,7 +374,7 @@ namespace WindowsFormsApp1
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(659, 306);
+            this.label12.Location = new System.Drawing.Point(659, 361);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 16);
@@ -384,20 +384,12 @@ namespace WindowsFormsApp1
             // PorcMoraComboBox
             // 
             this.PorcMoraComboBox.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PorcMoraComboBox.Location = new System.Drawing.Point(758, 306);
+            this.PorcMoraComboBox.Location = new System.Drawing.Point(758, 361);
             this.PorcMoraComboBox.Name = "PorcMoraComboBox";
             this.PorcMoraComboBox.Size = new System.Drawing.Size(63, 24);
             this.PorcMoraComboBox.TabIndex = 13;
             this.PorcMoraComboBox.Text = "43,27";
             this.PorcMoraComboBox.TextChanged += new System.EventHandler(this.PorcMoraComboBox_TextChanged);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(408, 493);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(346, 145);
-            this.dataGridView1.TabIndex = 34;
             // 
             // claseBt
             // 
@@ -420,48 +412,61 @@ namespace WindowsFormsApp1
             // 
             // extemTb
             // 
-            this.extemTb.Location = new System.Drawing.Point(614, 426);
+            this.extemTb.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extemTb.Location = new System.Drawing.Point(55, 17);
             this.extemTb.Name = "extemTb";
-            this.extemTb.Size = new System.Drawing.Size(100, 34);
+            this.extemTb.Size = new System.Drawing.Size(59, 24);
             this.extemTb.TabIndex = 37;
             // 
             // moraTb
             // 
-            this.moraTb.Location = new System.Drawing.Point(614, 466);
+            this.moraTb.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moraTb.Location = new System.Drawing.Point(55, 44);
             this.moraTb.Name = "moraTb";
-            this.moraTb.Size = new System.Drawing.Size(100, 34);
+            this.moraTb.Size = new System.Drawing.Size(59, 24);
             this.moraTb.TabIndex = 38;
             // 
             // extemLb
             // 
             this.extemLb.AutoSize = true;
-            this.extemLb.Location = new System.Drawing.Point(435, 431);
+            this.extemLb.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extemLb.Location = new System.Drawing.Point(1, 22);
             this.extemLb.Name = "extemLb";
-            this.extemLb.Size = new System.Drawing.Size(174, 26);
+            this.extemLb.Size = new System.Drawing.Size(54, 16);
             this.extemLb.TabIndex = 39;
-            this.extemLb.Text = "extemporaneidad";
+            this.extemLb.Text = "Extemp.";
+            this.extemLb.Click += new System.EventHandler(this.extemLb_Click);
             // 
             // moraLb
             // 
             this.moraLb.AutoSize = true;
-            this.moraLb.Location = new System.Drawing.Point(469, 461);
+            this.moraLb.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moraLb.Location = new System.Drawing.Point(1, 47);
             this.moraLb.Name = "moraLb";
-            this.moraLb.Size = new System.Drawing.Size(60, 26);
+            this.moraLb.Size = new System.Drawing.Size(40, 16);
             this.moraLb.TabIndex = 40;
-            this.moraLb.Text = "mora";
+            this.moraLb.Text = "Mora";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.extemLb);
+            this.groupBox2.Controls.Add(this.moraLb);
+            this.groupBox2.Controls.Add(this.extemTb);
+            this.groupBox2.Controls.Add(this.moraTb);
+            this.groupBox2.Location = new System.Drawing.Point(513, 345);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(133, 78);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 506);
-            this.Controls.Add(this.moraLb);
-            this.Controls.Add(this.extemLb);
-            this.Controls.Add(this.moraTb);
-            this.Controls.Add(this.extemTb);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.claseTb);
             this.Controls.Add(this.claseBt);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.PorcMoraComboBox);
             this.Controls.Add(this.label11);
@@ -494,7 +499,8 @@ namespace WindowsFormsApp1
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,13 +538,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox PorcMoraComboBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label fechaLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button claseBt;
         private System.Windows.Forms.TextBox claseTb;
         private System.Windows.Forms.TextBox extemTb;
         private System.Windows.Forms.TextBox moraTb;
         private System.Windows.Forms.Label extemLb;
         private System.Windows.Forms.Label moraLb;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
